@@ -67,3 +67,4 @@ typings/
 *.d.ts
 *.d.cts
 .DS_Store
+dist

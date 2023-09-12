@@ -1,21 +1,5 @@
 /*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
 
-if (!globalThis.ReadableStream) {
-  try {
-    const process = await import('node:process').then(m => m.default)
-    const { emitWarning } = process
-    try {
-      process.emitWarning = () => {}
-      const streams = await import('node:stream/web').then(m => m.default)
-      Object.assign(globalThis, streams)
-      process.emitWarning = emitWarning
-    } catch (error) {
-      process.emitWarning = emitWarning
-      throw error
-    }
-  } catch (error) {}
-}
-
 // 64 KiB (same size chrome slice theirs blob into Uint8array's)
 const POOL_SIZE = 65536
 
